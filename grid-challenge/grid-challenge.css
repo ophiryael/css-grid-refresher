@@ -1,4 +1,5 @@
-.container {
+/* Naming grid lines: Line numbers */
+/* .container {
   height: 800px;
   width: 800px;
   margin: 25px auto;
@@ -28,4 +29,37 @@
 
 .main-content {
   grid-column: 1 / span 3;
+} */
+
+/* Naming grid lines: Line names */
+.container {
+  height: 800px;
+  width: 800px;
+  margin: 25px auto;
+  color: white;
+  font-size: 30px;
+  font-family: sans-serif;
+  display: grid;
+  grid-template-rows: [header-start] 1fr [header-end box-start] 2fr [box-end main-start] 4fr [main-end footer-start] 1fr [footer-end];
+  grid-template-columns: repeat(3, [col-start] 1.25fr [col-end]) 1fr [grid-end];
+  gap: 20px;
+}
+
+.container > div {
+  padding: 15px;
+  background-color: tomato;
+}
+
+.header,
+.footer {
+  grid-column: col-start 1 / grid-end;
+}
+
+.sidebar {
+  grid-row: box-start / main-end;
+  grid-column: col-end 3 / grid-end;
+}
+
+.main-content {
+  grid-column: col-start 1 / col-end 3;
 }
